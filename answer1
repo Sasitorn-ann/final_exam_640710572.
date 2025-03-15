@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';  
+void main() {
+  runApp(MaterialApp(
+    home: ProfilePage(),
+  ));
+}
+
+
+class ProfilePage extends StatelessWidget {  
+  @override
+  Widget build(BuildContext context) {  
+    return Scaffold(  
+      appBar: AppBar(  
+        title: Text('Profile Page'),  
+      ),
+      body: Column(  
+        children: [  
+          Container(  // สร้าง Container สำหรับแสดงข้อมูลโปรไฟล์
+            color: Colors.orange,  // กำหนดสีพื้นหลังของ Container เป็นสีส้ม
+            width: double.infinity,  // กำหนดความกว้างของ Container ให้เต็มหน้าจอ
+            padding: EdgeInsets.all(20),  // กำหนดระยะห่างภายในของ Container
+            child: Column(  // ใช้ Column เพื่อจัดวางข้อมูลโปรไฟล์ในแนวตั้ง
+              children: [  // children เก็บ widget หลายๆ อัน
+                Container(  // สร้าง Container สำหรับแสดงรูปโปรไฟล์
+                  width: 80,  // กำหนดความกว้างของ Container
+                  height: 80,  // กำหนดความสูงของ Container
+                  decoration: BoxDecoration(  // การตั้งค่ารูปแบบของ Container
+                    color: Colors.blue,  // กำหนดสีพื้นหลังเป็นสีน้ำเงิน
+                    shape: BoxShape.circle,  // กำหนดรูปทรงเป็นวงกลม
+                  ),
+                  child: Icon(  // ใช้ Icon widget เพื่อแสดงไอคอน
+                    Icons.person,  // ไอคอนที่จะแสดงคือไอคอน 'person'
+                    color: Colors.white,  // กำหนดสีของไอคอนเป็นสีขาว
+                    size: 40,  // กำหนดขนาดของไอคอน
+                  ),
+                ),
+                SizedBox(height: 10),  // เว้นระยะห่าง 10 พิกเซล
+                Text(  // แสดงข้อความชื่อผู้ใช้
+                  'User Name',  // ข้อความชื่อผู้ใช้
+                  style: TextStyle(  // กำหนดรูปแบบของข้อความ
+                    fontSize: 20,  // กำหนดขนาดตัวอักษรเป็น 20
+                    color: Colors.white,  // กำหนดสีของข้อความเป็นสีขาว
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Padding(  
+            padding: const EdgeInsets.all(20.0),  
+            child: Column(  
+              crossAxisAlignment: CrossAxisAlignment.start,  
+              children: [  
+                Row( 
+                  children: [ 
+                    Icon(Icons.email),  
+                    SizedBox(width: 10),  
+                    Text('tonam_s@silpakorn.edu'), 
+                  ],
+                ),
+                SizedBox(height: 10), 
+                Row(  
+                  children: [  
+                    Icon(Icons.phone),  
+                    SizedBox(width: 10), 
+                    Text('0947923337'),  
+                  ],
+                ),
+                SizedBox(height: 10),  
+                Row(  
+                  children: [  
+                    Icon(Icons.location_on), 
+                    SizedBox(width: 10),  
+                    Text('151 marlitong'),  
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          Spacer(),  
+          Padding( 
+            padding: const EdgeInsets.all(20.0),  
+            child: Row( 
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+                ElevatedButton(  
+                  onPressed: () {},  
+                  child: Text('Edit Profile'),  
+                ),
+                ElevatedButton(  
+                  onPressed: () {},  
+                  child: Text('Logout'),  
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
